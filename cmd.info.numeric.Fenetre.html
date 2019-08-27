@@ -1,0 +1,79 @@
+<div style="padding:0;width:90px;min-height:62px;" class="cmd #history# tooltips cmd-widget" data-type="info" data-subtype="binary" data-cmd_id="#id#" data-cmd_uid="#uid#" data-eqLogic_id="#eqLogic_id#" data-eqLogic_id="#eqLogic_id#" title="#collectDate#">
+    <!-- Info Widget
+            Basé sur les widget de 		: 
+            Mise à jour 				: JAG 20190827 : Création
+    -->
+    <div class="title #hide_name#">
+        <div class="cmdName" style="#hideCmdName#">#name_display#</div>
+    </div>
+    <div style="text-align:center;">
+        <div>
+            <span class="iconCmd#id#"></span>
+        </div>
+            <div style="display:inline-block;">
+                <div class="value">
+                    <span class="value#id# timeCmd label label-default value"></span>
+                </div>
+            </div>
+    </div>
+<script>
+    jeedom.cmd.update['#id#'] = function(_options){
+        // Options de personnalisation avec valeur par defaut
+            // Paramètre "sizehw" : à déclarer en pixels - 80 maxi
+                    var srcImgHeight    = (is_numeric('#sizeh#')) ? parseFloat('#sizeh#') : 90;
+                    var srcImgWidth     = (is_numeric('#sizew#')) ? parseFloat('#sizew#') : 90;
+                    var srcImgSize      = 'height='+srcImgHeight+'px width='+srcImgWidth+'px';
+            // Paramétrage Niveau
+                    var window_0         = (is_numeric('#Fenetre_0#')) ? parseFloat('#Fenetre_0#') : 0;
+                    var window_1         = (is_numeric('#Fenetre_1#')) ? parseFloat('#Fenetre_1#') : 1;
+                    var window_2         = (is_numeric('#Fenetre_2#')) ? parseFloat('#Fenetre_2#') : 2;
+                    var window_3         = (is_numeric('#Fenetre_3#')) ? parseFloat('#Fenetre_3#') : 3;
+      				var window_4         = (is_numeric('#Fenetre_4#')) ? parseFloat('#Fenetre_4#') : 4;
+            // Paramétrage des images
+                    var srcImgURL       = 'plugins/widget/core/template/dashboard/cmd.info.numeric.Fenetre/';
+                // Paramètrage du logo Erreur
+                    var srcImglogoER    = ('#logo_error#'!='#'+'logo_error#') ? "#logo_error#" : "error";
+                    var srcImglogoER_T  = ('#logoER_type#'!='#'+'logoER_type#') ? "#logoER_type#" : "png";
+                // Paramètrage des images
+                    var srcImgWindow_0	= ('#logo_Fenetre0#'!='#'+'logo_Fenetre0#') ? "#logo_Fenetre0#" : "baie_fermee";
+                    var srcImgWindow_0_T	= ('#logo_Fenetre_type0#'!='#'+'logo_Fenetre_type0#') ? "#logo_Fenetre_type0#" : "png";
+                    var srcImgWindow_1	= ('#logo_Fenetre1#'!='#'+'logo_Fenetre1#') ? "#logo_Fenetre1#" : "baie_ouverte-G";
+                    var srcImgWindow_1_T	= ('#logo_Fenetre_type1#'!='#'+'logo_Fenetre_type1#') ? "#logo_Fenetre_type1#" : "png";
+                    var srcImgWindow_2	= ('#logo_Fenetre2#'!='#'+'logo_Fenetre2#') ? "#logo_Fenetre2#" : "baie_ouverte-D";
+                    var srcImgWindow_2_T	= ('#logo_Fenetre_type2#'!='#'+'logo_Fenetre_type2#') ? "#logo_Fenetre_type2#" : "png";
+                    var srcImgWindow_3	= ('#logo_Fenetre3#'!='#'+'logo_Fenetre3#') ? "#logo_Fenetre3#" : "baie_ouvert";
+                    var srcImgWindow_3_T	= ('#logo_Fenetre_type3#'!='#'+'logo_Fenetre_type4#') ? "#logo_Fenetre_type4#" : "png";
+                    var srcImgWindow_4	= ('#logo_Fenetre4#'!='#'+'logo_Fenetre4#') ? "#logo_Fenetre4#" : "baie_ouvert";
+                    var srcImgWindow_4_T	= ('#logo_Fenetre_type4#'!='#'+'logo_Fenetre_type4#') ? "#logo_Fenetre_type4#" : "png";
+
+        // Update
+            var srcPictureID;
+            var srcImglogo_T;
+            var State = parseFloat(_options.display_value);
+            if (State == window_0){
+                srcPictureID = srcImgWindow_0;
+                srcImglogo_T = srcImgWindow_0_T;
+            } else if (State == window_1){
+                srcPictureID = srcImgWindow_1;
+                srcImglogo_T = srcImgWindow_1_T;
+            } else if (State == window_2){
+                srcPictureID = srcImgWindow_2;
+                srcImglogo_T = srcImgWindow_2_T;
+            } else if (State == window_3){
+                srcPictureID = srcImgWindow_3;
+                srcImglogo_T = srcImgWindow_3_T;
+            } else if (State == window_4){
+                srcPictureID = srcImgWindow_4;
+                srcImglogo_T = srcImgWindow_4_T;
+            } else {
+                srcPictureID = srcImglogoER;
+                srcImglogo_T = srcImglogoER_T;
+            }
+        // Update IMG + gestion erreur
+            $('.cmd[data-cmd_uid=#uid#] .iconCmd#id#').empty().append('<img src="'+srcImgURL +srcPictureID +'.'+ srcImglogo_T+'" '+srcImgSize+'>');
+            $('.cmd[data-cmd_uid=#uid#] .value#id#').empty().append(_options.display_value+' '+'#unite#');
+            $('.cmd[data-cmd_uid=#uid#]').attr('title','Valeur du '+_options.valueDate+', collectée le '+_options.collectDate);
+    }
+    jeedom.cmd.update['#id#']({display_value:'#state#',valueDate:'#valueDate#',collectDate:'#collectDate#',alertLevel:'#alertLevel#'});
+</script>
+</div>
