@@ -6,16 +6,13 @@
     <div class="title #hide_name#">
         <div class="cmdName" style="#hideCmdName#">#name_display#</div>
     </div>
-    <div style="text-align:center;">
-        <div>
-            <span class="iconCmd#id#"></span>
-        </div>
-            <div style="display:inline-block;">
-                <div class="value">
-                    <span class="value#id# timeCmd label label-default value"></span>
-                </div>
-            </div>
+    <div class="content-sm ">
+        <span class="iconCmd#uid#"></span>
     </div>
+    <div style="font-weight: bold;font-size : 10px;">
+        <span class="timeCmd#id# timeCmd label label-default value"></span>
+    </div>
+
 <script>
     jeedom.cmd.update['#id#'] = function(_options){
         // Options de personnalisation avec valeur par defaut
@@ -33,6 +30,8 @@
                     var value_6         = (is_numeric('#valeur_6#')) ? parseFloat('#valeur_6#') : 6;
                     var value_7         = (is_numeric('#valeur_7#')) ? parseFloat('#valeur_7#') : 7;
                     var value_8         = (is_numeric('#valeur_8#')) ? parseFloat('#valeur_8#') : 8;
+            // Affichage durée changement dernier etat
+                    var srcImglogoTime  = '#logoTime#';
             // Paramétrage des images
                     var srcImgURL       = 'plugins/widget/core/template/dashboard/cmd.info.numeric.Fenetre/';
                 // Paramètrage du logo Erreur
@@ -94,8 +93,23 @@
                 srcImglogo_T = srcImglogoER_T;
             }
         // Update IMG
-            $('.cmd[data-cmd_uid=#uid#] .iconCmd#id#').empty().append('<img src="'+srcImgURL +srcPictureID +'.'+ srcImglogo_T+'" '+srcImgSize+'>');
-            $('.cmd[data-cmd_uid=#uid#] .value#id#').empty().append(_options.display_value+' '+'#unite#');
+            $('.cmd[data-cmd_uid=#uid#] .iconCmd#uid#').empty().append('<img src="'+srcImgURL +srcPictureID +'.'+ srcImglogo_T+'" '+srcImgSize+'>');
+            $('.cmd[data-cmd_uid=#uid#] .value#uid#').empty().append(_options.display_value+' '+'#unite#');
+        
+        // Derniere durée changement dernier etat
+            //Merci @Salvialf pour le code
+                if (srcImglogoTime == "duree") {
+                    jeedom.cmd.displayDuration(_options.valueDate, $('.cmd[data-cmd_id=#id#] .timeCmd#id#'));
+                } else if (srcImglogoTime == "date") {
+                    var srcdate     = new Date(_options.valueDate);
+                    var srcformat   = $.datepicker.formatDate('D dd/mm', srcdate);
+                    var srctime     = "à "+srcdate.getHours()+":"+(srcdate.getMinutes()<10?'0':'')+srcdate.getMinutes();
+                    $('.cmd[data-cmd_id=#id#] .timeCmd#id#').empty().html(srcformat+'<br>'+srctime);
+                } else if (srcImglogoTime == "heure") {
+                    var srcdate     = new Date(_options.valueDate);
+                    var srctime     = "à "+srcdate.getHours()+":"+(srcdate.getMinutes()<10?'0':'')+srcdate.getMinutes()+":"+(srcdate.getSeconds()<10?'0':'')+srcdate.getSeconds()+"";
+                    $('.cmd[data-cmd_id=#id#] .timeCmd#id#').empty().html(srctime);
+                };
             $('.cmd[data-cmd_uid=#uid#]').attr('title','Valeur du '+_options.valueDate+', collectée le '+_options.collectDate);
     }
     jeedom.cmd.update['#id#']({display_value:'#state#',valueDate:'#valueDate#',collectDate:'#collectDate#',alertLevel:'#alertLevel#'});
