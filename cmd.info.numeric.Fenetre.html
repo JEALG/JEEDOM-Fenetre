@@ -20,56 +20,80 @@
     jeedom.cmd.update['#id#'] = function(_options){
         // Options de personnalisation avec valeur par defaut
             // Paramètre "sizehw" : à déclarer en pixels - 80 maxi
-                    var srcImgHeight    = (is_numeric('#sizeh#')) ? parseFloat('#sizeh#') : 90;
-                    var srcImgWidth     = (is_numeric('#sizew#')) ? parseFloat('#sizew#') : 90;
+                    var srcImgHeight    = (is_numeric('#sizeh#')) ? parseFloat('#sizeh#') : 80;
+                    var srcImgWidth     = (is_numeric('#sizew#')) ? parseFloat('#sizew#') : 80;
                     var srcImgSize      = 'height='+srcImgHeight+'px width='+srcImgWidth+'px';
             // Paramétrage Niveau
-                    var window_0         = (is_numeric('#Fenetre_0#')) ? parseFloat('#Fenetre_0#') : 0;
-                    var window_1         = (is_numeric('#Fenetre_1#')) ? parseFloat('#Fenetre_1#') : 1;
-                    var window_2         = (is_numeric('#Fenetre_2#')) ? parseFloat('#Fenetre_2#') : 2;
-                    var window_3         = (is_numeric('#Fenetre_3#')) ? parseFloat('#Fenetre_3#') : 3;
-      				var window_4         = (is_numeric('#Fenetre_4#')) ? parseFloat('#Fenetre_4#') : 4;
+                    var value_0         = (is_numeric('#valeur_0#')) ? parseFloat('#valeur_0#') : 0;
+                    var value_1         = (is_numeric('#valeur_1#')) ? parseFloat('#valeur_1#') : 1;
+                    var value_2         = (is_numeric('#valeur_2#')) ? parseFloat('#valeur_2#') : 2;
+                    var value_3         = (is_numeric('#valeur_3#')) ? parseFloat('#valeur_3#') : 3;
+                    var value_4         = (is_numeric('#valeur_4#')) ? parseFloat('#valeur_4#') : 4;
+                    var value_5         = (is_numeric('#valeur_5#')) ? parseFloat('#valeur_5#') : 5;
+                    var value_6         = (is_numeric('#valeur_6#')) ? parseFloat('#valeur_6#') : 6;
+                    var value_7         = (is_numeric('#valeur_7#')) ? parseFloat('#valeur_7#') : 7;
+                    var value_8         = (is_numeric('#valeur_8#')) ? parseFloat('#valeur_8#') : 8;
             // Paramétrage des images
                     var srcImgURL       = 'plugins/widget/core/template/dashboard/cmd.info.numeric.Fenetre/';
                 // Paramètrage du logo Erreur
                     var srcImglogoER    = ('#logo_error#'!='#'+'logo_error#') ? "#logo_error#" : "error";
                     var srcImglogoER_T  = ('#logoER_type#'!='#'+'logoER_type#') ? "#logoER_type#" : "png";
                 // Paramètrage des images
-                    var srcImgWindow_0	= ('#logo_Fenetre0#'!='#'+'logo_Fenetre0#') ? "#logo_Fenetre0#" : "baie_fermee";
-                    var srcImgWindow_0_T	= ('#logo_Fenetre_type0#'!='#'+'logo_Fenetre_type0#') ? "#logo_Fenetre_type0#" : "png";
-                    var srcImgWindow_1	= ('#logo_Fenetre1#'!='#'+'logo_Fenetre1#') ? "#logo_Fenetre1#" : "baie_ouverte-G";
-                    var srcImgWindow_1_T	= ('#logo_Fenetre_type1#'!='#'+'logo_Fenetre_type1#') ? "#logo_Fenetre_type1#" : "png";
-                    var srcImgWindow_2	= ('#logo_Fenetre2#'!='#'+'logo_Fenetre2#') ? "#logo_Fenetre2#" : "baie_ouverte-D";
-                    var srcImgWindow_2_T	= ('#logo_Fenetre_type2#'!='#'+'logo_Fenetre_type2#') ? "#logo_Fenetre_type2#" : "png";
-                    var srcImgWindow_3	= ('#logo_Fenetre3#'!='#'+'logo_Fenetre3#') ? "#logo_Fenetre3#" : "baie_ouvert";
-                    var srcImgWindow_3_T	= ('#logo_Fenetre_type3#'!='#'+'logo_Fenetre_type4#') ? "#logo_Fenetre_type4#" : "png";
-                    var srcImgWindow_4	= ('#logo_Fenetre4#'!='#'+'logo_Fenetre4#') ? "#logo_Fenetre4#" : "baie_ouvert";
-                    var srcImgWindow_4_T	= ('#logo_Fenetre_type4#'!='#'+'logo_Fenetre_type4#') ? "#logo_Fenetre_type4#" : "png";
+                    var srcImgValue_0   = ('#logo_0#'!='#'+'logo_0#') ? "#logo_0#" : "baie_fermee";
+                    var srcImgValue_0_T = ('#logo_0_type#'!='#'+'logo_0_type#') ? "#logo_0_type#" : "png";
+                    var srcImgValue_1   = ('#logo_1#'!='#'+'logo_1#') ? "#logo_1#" : "baie_ouverte-G";
+                    var srcImgValue_1_T = ('#logo_1_type#'!='#'+'logo_1_type#') ? "#logo_1_type#" : "png";
+                    var srcImgValue_2   = ('#logo_2#'!='#'+'logo_2#') ? "#logo_2#" : "baie_ouverte-D";
+                    var srcImgValue_2_T = ('#logo_2_type#'!='#'+'logo_2_type#') ? "#logo_2_type#" : "png";
+                    var srcImgValue_3   = ('#logo_3#'!='#'+'logo_3#') ? "#logo_3#" : "baie_ouvert";
+                    var srcImgValue_3_T = ('#logo_3_type#'!='#'+'logo_3_type#') ? "#logo_3_type#" : "png";
+                    var srcImgValue_4   = ('#logo_4#'!='#'+'logo_4#') ? "#logo_4#" : "baie_ouvert";
+                    var srcImgValue_4_T = ('#logo_4_type#'!='#'+'logo_4_type#') ? "#logo_4_type#" : "png";
+                    var srcImgValue_5   = ('#logo_5#'!='#'+'logo_5#') ? "#logo_5#" : "baie_ouverte";
+                    var srcImgValue_5_T = ('#logo_5_type#'!='#'+'logo_5_type#') ? "#logo_5_type#" : "png";
+                    var srcImgValue_6   = ('#logo_6#'!='#'+'logo_6#') ? "#logo_6#" : "baie_ouverte";
+                    var srcImgValue_6_T = ('#logo_6_type#'!='#'+'logo_6_type#') ? "#logo_6_type#" : "png";
+                    var srcImgValue_7   = ('#logo_7#'!='#'+'logo_7#') ? "#logo_7#" : "baie_ouvert";
+                    var srcImgValue_7_T = ('#logo_7_type#'!='#'+'logo_7_type#') ? "#logo_7_type#" : "png";
+                    var srcImgValue_8   = ('#logo_8#'!='#'+'logo_8#') ? "#logo_8#" : "baie_ouvert";
+                    var srcImgValue_8_T = ('#logo_8_type#'!='#'+'logo_8_type#') ? "#logo_8_type#" : "png";
 
         // Update
             var srcPictureID;
             var srcImglogo_T;
             var State = parseFloat(_options.display_value);
-            if (State == window_0){
-                srcPictureID = srcImgWindow_0;
-                srcImglogo_T = srcImgWindow_0_T;
-            } else if (State == window_1){
-                srcPictureID = srcImgWindow_1;
-                srcImglogo_T = srcImgWindow_1_T;
-            } else if (State == window_2){
-                srcPictureID = srcImgWindow_2;
-                srcImglogo_T = srcImgWindow_2_T;
-            } else if (State == window_3){
-                srcPictureID = srcImgWindow_3;
-                srcImglogo_T = srcImgWindow_3_T;
-            } else if (State == window_4){
-                srcPictureID = srcImgWindow_4;
-                srcImglogo_T = srcImgWindow_4_T;
+            if (State == value_0){
+                srcPictureID = srcImgValue_0;
+                srcImglogo_T = srcImgValue_0_T;
+            } else if (State == value_1){
+                srcPictureID = srcImgValue_1;
+                srcImglogo_T = srcImgValue_1_T;
+            } else if (State == value_2){
+                srcPictureID = srcImgValue_2;
+                srcImglogo_T = srcImgValue_2_T;
+            } else if (State == value_3){
+                srcPictureID = srcImgValue_3;
+                srcImglogo_T = srcImgValue_3_T;
+            } else if (State == value_4){
+                srcPictureID = srcImgValue_4;
+                srcImglogo_T = srcImgValue_4_T;
+            } else if (State == value_5){
+                srcPictureID = srcImgValue_5;
+                srcImglogo_T = srcImgValue_5_T;
+            } else if (State == value_6){
+                srcPictureID = srcImgValue_6;
+                srcImglogo_T = srcImgValue_6_T;
+            } else if (State == value_7){
+                srcPictureID = srcImgValue_7;
+                srcImglogo_T = srcImgValue_7_T;
+            } else if (State == value_8){
+                srcPictureID = srcImgValue_8;
+                srcImglogo_T = srcImgValue_8_T;
             } else {
                 srcPictureID = srcImglogoER;
                 srcImglogo_T = srcImglogoER_T;
             }
-        // Update IMG + gestion erreur
+        // Update IMG
             $('.cmd[data-cmd_uid=#uid#] .iconCmd#id#').empty().append('<img src="'+srcImgURL +srcPictureID +'.'+ srcImglogo_T+'" '+srcImgSize+'>');
             $('.cmd[data-cmd_uid=#uid#] .value#id#').empty().append(_options.display_value+' '+'#unite#');
             $('.cmd[data-cmd_uid=#uid#]').attr('title','Valeur du '+_options.valueDate+', collectée le '+_options.collectDate);
