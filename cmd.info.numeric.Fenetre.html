@@ -20,11 +20,11 @@
                 var srcImgHeight	   = is_numeric('#sizeh#') ? parseFloat('#sizeh#'):80;
                 var srcImgWidth 	   = is_numeric('#sizew#') ? parseFloat('#sizew#'):80;
                 // Type de taille
-                    var srcImgpourcent     = ('#Pourcentage#'!='#'+'Pourcentage#') ? "#Pourcentage#" : "NO";
+                    var srcImgpourcent  = ('#Pourcentage#'!='#'+'Pourcentage#') ? "#Pourcentage#" : "NO";
                     if (srcImgpourcent  == "NO") {
-                        var srcImgSize 		   = 'height='+srcImgHeight+'px width='+srcImgWidth+'px';
+                        var srcImgSize  = 'height='+srcImgHeight+'px width='+srcImgWidth+'px';
                     } else {
-                        var srcImgSize 		   = 'height='+srcImgHeight+'% width='+srcImgWidth+'%';
+                        var srcImgSize  = 'height='+srcImgHeight+'% width='+srcImgWidth+'%';
                     }
             // Paramétrage Niveau
                     var value_0         = (is_numeric('#valeur_0#')) ? parseFloat('#valeur_0#') : 0;
