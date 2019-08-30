@@ -16,10 +16,16 @@
 <script>
     jeedom.cmd.update['#id#'] = function(_options){
         // Options de personnalisation avec valeur par defaut
-            // Paramètre "sizehw" : à déclarer en pixels - 80 maxi
-                    var srcImgHeight    = (is_numeric('#sizeh#')) ? parseFloat('#sizeh#') : 80;
-                    var srcImgWidth     = (is_numeric('#sizew#')) ? parseFloat('#sizew#') : 80;
-                    var srcImgSize      = 'height='+srcImgHeight+'px width='+srcImgWidth+'px';
+            // Paramètre "sizeh" & "sizew"
+                var srcImgHeight	   = is_numeric('#sizeh#') ? parseFloat('#sizeh#'):80;
+                var srcImgWidth 	   = is_numeric('#sizew#') ? parseFloat('#sizew#'):80;
+                // Type de taille
+                    var srcImgpourcent     = ('#Pourcentage#'!='#'+'Pourcentage#') ? "#Pourcentage#" : "NO";
+                    if (srcImgpourcent  == "NO") {
+                        var srcImgSize 		   = 'height='+srcImgHeight+'px width='+srcImgWidth+'px';
+                    } else {
+                        var srcImgSize 		   = 'height='+srcImgHeight+'% width='+srcImgWidth+'%';
+                    }
             // Paramétrage Niveau
                     var value_0         = (is_numeric('#valeur_0#')) ? parseFloat('#valeur_0#') : 0;
                     var value_1         = (is_numeric('#valeur_1#')) ? parseFloat('#valeur_1#') : 1;
