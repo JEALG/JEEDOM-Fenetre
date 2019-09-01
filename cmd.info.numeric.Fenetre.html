@@ -1,7 +1,7 @@
 <div style="padding:0;width:90px;min-height:62px;" class="cmd #history# tooltips cmd-widget" data-type="info" data-subtype="binary" data-cmd_id="#id#" data-cmd_uid="#uid#" data-eqLogic_id="#eqLogic_id#" data-eqLogic_id="#eqLogic_id#" title="#collectDate#">
     <!-- Info Widget
             Basé sur les widget de 		: 
-            Mise à jour 				: JAG 20190827 : Création
+            Mise à jour 				: JAG 201908901 : Nettoyage du code
     -->
     <div class="title #hide_name#">
         <div class="cmdName" style="#hideCmdName#">#name_display#</div>
@@ -17,8 +17,8 @@
     jeedom.cmd.update['#id#'] = function(_options){
         // Options de personnalisation avec valeur par defaut
             // Paramètre "sizeh" & "sizew"
-                var srcImgHeight	   = is_numeric('#sizeh#') ? parseFloat('#sizeh#'):80;
-                var srcImgWidth 	   = is_numeric('#sizew#') ? parseFloat('#sizew#'):80;
+                    var srcImgHeight    = is_numeric('#sizeh#') ? parseFloat('#sizeh#'):80;
+                    var srcImgWidth     = is_numeric('#sizew#') ? parseFloat('#sizew#'):80;
                 // Type de taille
                     var srcImgpourcent  = ('#Pourcentage#'!='#'+'Pourcentage#') ? "#Pourcentage#" : "NO";
                     if (srcImgpourcent  == "NO") {
