@@ -107,7 +107,7 @@
 
             // Derniere durée changement dernier etat
             //Merci @Salvialf pour le code
-            if (srcImglogoTime == "duree") {
+            if (srcImglogoTime == "duree"|| srcImglogoTime == "durée") {
                 jeedom.cmd.displayDuration(_options.valueDate, $('.cmd[data-cmd_id=#id#] .timeCmd#id#'));
             } else if (srcImglogoTime == "date") {
                 var srcdate = new Date(_options.valueDate);
