@@ -1,11 +1,12 @@
-<div class="cmd #history# tooltips cmd-widget" data-type="info" data-subtype="numeric" data-cmd_id="#id#" data-cmd_uid="#uid#" data-eqLogic_id="#eqLogic_id#" data-eqLogic_id="#eqLogic_id#" title="#collectDate#">
+<div class="cmd #history# tooltips cmd-widget" data-type="info" data-subtype="numeric" data-cmd_id="#id#"
+    data-cmd_uid="#uid#" data-eqLogic_id="#eqLogic_id#" data-eqLogic_id="#eqLogic_id#" title="#collectDate#">
     <!-- Info Widget
         Widget de           : JAG
         Widget pour le Core : V4
         Mise à jour         : JAG 20200502 => Ajout Version Core
 	-->
     <div class="title #hide_name#">
-        <div class="cmdName" style="#hideCmdName#">#name_display#</div>
+        <div class="cmdName">#name_display#</div>
     </div>
     <div class="content-sm ">
         <span class="iconCmd#uid#"></span>
@@ -15,7 +16,7 @@
     </div>
 
     <script>
-        jeedom.cmd.update['#id#'] = function(_options) {
+        jeedom.cmd.update['#id#'] = function (_options) {
             var cmd = $('.cmd[data-cmd_id=#id#]');
             // Options de personnalisation avec valeur par defaut
             // Paramètre "sizeh" & "sizew"
@@ -41,8 +42,8 @@
             // Affichage durée changement dernier etat
             var srcImglogoTime = '#logoTime#';
             // Paramétrage des images
-            var srcImgURL = 'data/customTemplates/dashboard/cmd.action.other.Multi-action-Defaut/fenetre/';
-            var srcImgURL_ER = 'data/customTemplates/dashboard/cmd.action.other.Multi-action-Defaut/error/';
+            var srcImgURL = 'data/img/fenetre/';
+            var srcImgURL_ER = 'data/img/error/';
             // Paramètrage du logo Erreur
             var srcImglogoER = ('#logo_error#' != '#' + 'logo_error#') ? "#logo_error#" : "er_ou1_or";
             var srcImglogoER_T = ('#logoER_type#' != '#' + 'logoER_type#') ? "#logoER_type#" : "png";
@@ -103,7 +104,8 @@
                 srcImgURL = srcImgURL_ER;
             }
             // Update IMG
-            $('.cmd[data-cmd_uid=#uid#] .iconCmd#uid#').empty().append('<img src="' + srcImgURL + srcPictureID + '.' + srcImglogo_T + '" ' + srcImgSize + '>');
+            $('.cmd[data-cmd_uid=#uid#] .iconCmd#uid#').empty().append('<img src="' + srcImgURL + srcPictureID +
+                '.' + srcImglogo_T + '" ' + srcImgSize + '>');
             $('.cmd[data-cmd_uid=#uid#] .value#uid#').empty().append(_options.display_value + ' ' + '#unite#');
 
             // Derniere durée changement dernier etat
@@ -123,7 +125,8 @@
                 var srctime = "à " + srcT[3] + ":" + srcT[4] + ":" + srcT[5];
                 cmd.find('.timeCmd').html(srctime);
             };
-            $('.cmd[data-cmd_uid=#uid#]').attr('title', 'Valeur du ' + _options.valueDate + ', collectée le ' + _options.collectDate);
+            $('.cmd[data-cmd_uid=#uid#]').attr('title', 'Valeur du ' + _options.valueDate + ', collectée le ' +
+                _options.collectDate);
         }
         jeedom.cmd.update['#id#']({
             display_value: '#state#',
@@ -131,6 +134,5 @@
             collectDate: '#collectDate#',
             alertLevel: '#alertLevel#'
         });
-
     </script>
 </div>
